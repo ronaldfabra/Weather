@@ -22,6 +22,12 @@ jobs:
     - name: Set up Xcode
       run: sudo xcode-select -s /Applications/Xcode_16.2.app/Contents/Developer
 
+    - name: Show current version of Xcode
+      run: xcodebuild -version
+
+    - name: List available devices
+      run: xcrun xctrace list devices
+      
     - name: Build and run tests
       run: |
         # Usa xcodebuild para ejecutar las pruebas
