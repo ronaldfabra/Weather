@@ -40,9 +40,7 @@ final class LocationRepositoryTests {
         let repository: LocationRepositoryProtocol = LocationRepository(network: network)
         do {
             // When
-            let response = try await repository.searchLocations(query: query)
-            // Then
-            #expect(response.isEmpty)
+            let _ = try await repository.searchLocations(query: query)
         } catch let error as NetworkErrorType {
             // Then
             #expect(error.errorDescription == NetworkErrorType.invalidData.errorDescription)

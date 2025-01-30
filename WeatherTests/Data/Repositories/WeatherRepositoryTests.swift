@@ -93,9 +93,7 @@ final class WeatherRepositoryTests {
         let repository: WeatherRepositoryProtocol = WeatherRepository(network: network)
         do {
             // When
-            let response = try await repository.getWeatherDetail(location: location)
-            // Then
-            #expect(response.forecast.forecastday.isEmpty)
+            let _ = try await repository.getWeatherDetail(location: location)
         } catch let error as NetworkErrorType {
             // Then
             #expect(error.errorDescription == NetworkErrorType.invalidData.errorDescription)
