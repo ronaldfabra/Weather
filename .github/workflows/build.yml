@@ -28,11 +28,37 @@ jobs:
     - name: List available devices
       run: xcrun simctl list devices
 
+    - name: Select the first available simulator
+      id: select_simulator
+      run: |
+        # List all available simulators and store the result
+        SIMULATOR=$(xcrun simctl list devices available | grep -E 'iPhone.*\(\S+\) \(\w+\)' | head -n 1 | sed 's/([A-Za-z0-9-]*\) (.*)/\1/i')
+        
+        # If a valid simulator is found, extract its name and iOS version
+        if [[ -z "$SIMULATOR" ]]; then
+          echo "No available simulators found"
+          exit 1
+        fi
+
+        # Extract the name and OS version of the selected simulator
+        SIMULATOR_NAME=$(echo $SIMULATOR | sed -E 's/(\S+) .*/\1/')
+        SIMULATOR_OS=$(echo $SIMULATOR | sed -E 's/\S+ (.*)/\1/')
+
+        echo "Selected simulator: $SIMULATOR_NAME with iOS $SIMULATOR_OS"
+        echo "::set-output name=simulator_name::$SIMULATOR_NAME"
+        echo "::set-output name=simulator_os::$SIMULATOR_OS"
+
     - name: Build and run tests
       run: |
+        # Retrieve simulator name and OS version from the previous step
+        SIMULATOR_NAME="${{ steps.select_simulator.outputs.simulator_name }}"
+        SIMULATOR_OS="${{ steps.select_simulator.outputs.simulator_os }}"
+
+        # Run the tests using xcodebuild
         xcodebuild clean test \
           -scheme "WeatherTests" \
-          -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.2' \
+          -destination "platform=iOS Simulator,name=$SIMULATOR_NAME,OS=$SIMULATOR_OS" \
+          -quiet
           -enableCodeCoverage YES
 
     - name: Upload coverage to Codecov
