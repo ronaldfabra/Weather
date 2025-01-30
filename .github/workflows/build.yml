@@ -19,7 +19,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Install latest Xcode
-      run: sudo xcode-select -s /Applications/Xcode_16.2.0.app/Contents/Developer
+      run: sudo xcode-select -s /Applications/Xcode_16.2.app/Contents/Developer
 
     - name: Show current version of Xcode
       run: xcodebuild -version
