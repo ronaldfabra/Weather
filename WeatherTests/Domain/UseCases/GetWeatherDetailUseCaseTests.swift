@@ -16,7 +16,7 @@ final class GetWeatherDetailUseCaseTests {
             id: 123,
             name: "",
             country: "",
-            latitude: .zero,
+            latitude: 10.0,
             longitude: .zero,
             localtime: ""
         )
@@ -32,7 +32,7 @@ final class GetWeatherDetailUseCaseTests {
         }
     }
 
-    @Test func fetchDataWithInvalidId() async throws {
+    @Test func fetchDataWithInvalidLatitude() async throws {
         // Given
         let location = LocationDomainModel(
             id: 0,

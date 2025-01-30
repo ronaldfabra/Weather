@@ -23,11 +23,30 @@ class WeatherRepositoryMock: WeatherRepositoryProtocol {
                        condition: .init(text: "", icon: "", code: 0),
                        tempC: 0.0,
                        windKph: 0.0),
-        forecast: .init(forecastday: [])
+        forecast: .init(
+            forecastday: [.init(
+                date: "",
+                day: .init(
+                    maxtempC: .zero,
+                    mintempC: .zero,
+                    avgtempC: .zero,
+                    condition: .init(text: "", icon: "", code: 0)
+                ),
+                hours: [.init(time: "",
+                              condition: .init(text: "", icon: "", code: 0),
+                              tempC: .zero,
+                              windKph: .zero),
+                        .init(time: "2025-01-29 00:00",
+                                      condition: .init(text: "", icon: "", code: 0),
+                                      tempC: .zero,
+                                      windKph: .zero)
+                ]
+            )]
+        )
     )
 
     func getWeatherDetail(location: Weather.LocationDomainModel) async throws -> WeatherDomainModel {
-        if location.id == .zero {
+        if location.latitude == .zero {
             throw NetworkErrorType.invalidData
         } else {
             mockWeatherResponse

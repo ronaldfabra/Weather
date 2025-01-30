@@ -23,8 +23,8 @@ class FavoriteLocationsViewModel: ObservableObject {
         favorites = coreDataStorage.fetchAllLocations()
     }
 
-    func deleteItem(from offsets: IndexSet) {
-        guard let index = offsets.first else { return }
+    func deleteItem(index: Int) {
+        guard favorites.indices.contains(index) else { return }
         let location = favorites[index]
         updateFavorite(location: location)
     }

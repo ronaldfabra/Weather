@@ -38,7 +38,8 @@ struct FavoriteLocationsView: View {
     }
     
     private func deleteItem(at offsets: IndexSet) {
-        viewModel.deleteItem(from: offsets)
+        guard let index = offsets.first else { return }
+        viewModel.deleteItem(index: index)
     }
 }
 

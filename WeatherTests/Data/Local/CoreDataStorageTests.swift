@@ -8,12 +8,13 @@
 @testable import Weather
 import CoreData
 import Testing
+import XCTest
 
-final class CoreDataStorageTests {
-    @Test func fetchAllLocations() {
+final class CoreDataStorageTests: XCTestCase {
+    func testFetchAllLocations() {
         // Given
         let dataStorage = CoreDataStorage(
-            context: mockContext()
+            context: MockContext.mockContext()
         )
         // When
         let response = dataStorage.fetchAllLocations()
@@ -21,7 +22,7 @@ final class CoreDataStorageTests {
         #expect(response.isEmpty)
     }
 
-    @Test func saveLocation() {
+    func testSaveLocation() {
         // Given
         let location = LocationDomainModel(
             id: 20,
@@ -32,7 +33,7 @@ final class CoreDataStorageTests {
             localtime: nil
         )
         let dataStorage = CoreDataStorage(
-            context: mockContext()
+            context: MockContext.mockContext()
         )
         // When
         dataStorage.saveLocation(location: location)
@@ -42,7 +43,7 @@ final class CoreDataStorageTests {
         #expect(response.last?.id == 20)
     }
 
-    @Test func deleteLocation() {
+    func testDeleteLocation() {
         // Given
         let location = LocationDomainModel(
             id: 20,
@@ -53,7 +54,7 @@ final class CoreDataStorageTests {
             localtime: nil
         )
         let dataStorage = CoreDataStorage(
-            context: mockContext()
+            context: MockContext.mockContext()
         )
         // When
         dataStorage.saveLocation(location: location)
@@ -63,21 +64,5 @@ final class CoreDataStorageTests {
         dataStorage.deleteLocation(location: location)
         response = dataStorage.fetchAllLocations()
         #expect(response.isEmpty)
-    }
-
-    func mockContext() -> NSManagedObjectContext {
-        let persistentContainer = NSPersistentContainer(name: WeatherContants.Database.dataModelName)
-
-        let descripcion = NSPersistentStoreDescription()
-        descripcion.type = NSInMemoryStoreType
-        persistentContainer.persistentStoreDescriptions = [descripcion]
-
-        persistentContainer.loadPersistentStores { _, error in
-            if let error = error {
-                fatalError("can not load the persistent container: \(error)")
-            }
-        }
-
-        return persistentContainer.viewContext
     }
 }
