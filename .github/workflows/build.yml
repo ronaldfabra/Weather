@@ -16,75 +16,21 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - name: Check out repository
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
-    - name: Set up Xcode
-      run: sudo xcode-select -s /Applications/Xcode_16.2.app/Contents/Developer
+    - name: Install latest Xcode
+      run: sudo xcode-select -s /Applications/Xcode_16.2.0.app/Contents/Developer
 
     - name: Show current version of Xcode
       run: xcodebuild -version
 
-    - name: List all devices for debugging (including simulators)
-      run: |
-        # List all devices (simulators + físicos)
-        xcrun simctl list devices
+    - name: List available devices
+      run: xcrun xctrace list devices
 
-    - name: List installed simulators
-      run: |
-        # List simuladores disponibles de Xcode
-        xcrun simctl list devices available
-
-    - name: Select the first available simulator
-      id: select_simulator
-      run: |
-        # Listar los simuladores disponibles y no apagados
-        SIMULATOR=$(xcrun simctl list devices available | grep -E 'iPhone.*\(\S+\) \(\w+\)' | grep -v 'Shutdown' | head -n 1)
-
-        # Si no se encuentra un simulador, terminar el script
-        if [[ -z "$SIMULATOR" ]]; then
-          echo "No available simulators found"
-          exit 1
-        fi
-
-        # Extraer el nombre y la versión de iOS del simulador seleccionado
-        SIMULATOR_NAME=$(echo $SIMULATOR | sed -E 's/([A-Za-z0-9 ]+) \([A-Za-z0-9-]*\) \((.*)\)/\1/')
-        SIMULATOR_OS=$(echo $SIMULATOR | sed -E 's/([A-Za-z0-9 ]+) \([A-Za-z0-9-]*\) \((.*)\)/\2/')
-
-        echo "Selected simulator: $SIMULATOR_NAME with iOS $SIMULATOR_OS"
-
-        # Establecer los valores extraídos como salida
-        echo "::set-output name=simulator_name::$SIMULATOR_NAME"
-        echo "::set-output name=simulator_os::$SIMULATOR_OS"
-
-    - name: Debug selected simulator
-      run: |
-        # Verificar si el simulador seleccionado realmente existe
-        echo "Selected simulator: $SIMULATOR_NAME with iOS $SIMULATOR_OS"
-        # Listar los simuladores nuevamente para confirmar
-        xcrun simctl list devices
-
-    - name: Boot the selected simulator
-      run: |
-        # Iniciar el simulador seleccionado
-        xcrun simctl boot "$SIMULATOR_NAME"
-        # Esperar 10 segundos para asegurarse de que el simulador haya arrancado
-        sleep 10
-
-    - name: Build and run tests
-      run: |
-        # Obtener el nombre y la versión de iOS del simulador
-        SIMULATOR_NAME="${{ steps.select_simulator.outputs.simulator_name }}"
-        SIMULATOR_OS="${{ steps.select_simulator.outputs.simulator_os }}"
-
-        # Ejecutar las pruebas con xcodebuild
-        xcodebuild clean test \
-          -scheme "WeatherTests" \
-          -destination "platform=iOS Simulator,name=$SIMULATOR_NAME,OS=$SIMULATOR_OS" \
-          -quiet \
-          -enableCodeCoverage YES
+    - name: Run tests
+      run: ./run_tests.sh
 
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v3
+      uses: codecov/codecov-action@v1.2.1
       with:
           token: ${{ secrets.CODECOV_TOKEN }}
