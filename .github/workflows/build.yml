@@ -31,8 +31,8 @@ jobs:
     - name: Select the first available simulator
       id: select_simulator
       run: |
-        # List all available simulators and store the result
-        SIMULATOR=$(xcrun simctl list devices available | grep -E 'iPhone.*\(\S+\) \(\w+\)' | head -n 1)
+        # List available simulators that are available and not in shutdown state
+        SIMULATOR=$(xcrun simctl list devices available | grep -E 'iPhone.*\(\S+\) \(\w+\)' | grep -v "Shutdown" | head -n 1)
 
         # If no simulator is found, exit
         if [[ -z "$SIMULATOR" ]]; then
@@ -50,6 +50,19 @@ jobs:
         echo "::set-output name=simulator_name::$SIMULATOR_NAME"
         echo "::set-output name=simulator_os::$SIMULATOR_OS"
 
+    - name: Debug selected simulator
+      run: |
+        echo "Selected simulator: $SIMULATOR_NAME with iOS $SIMULATOR_OS"
+        # Check the available simulators again to verify if the selected one exists
+        xcrun simctl list devices
+
+    - name: Boot the selected simulator
+      run: |
+        # Boot the selected simulator
+        xcrun simctl boot "$SIMULATOR_NAME"
+        # Wait for the simulator to finish booting
+        sleep 10
+
     - name: Build and run tests
       run: |
         # Retrieve simulator name and OS version from the previous step
@@ -60,7 +73,7 @@ jobs:
         xcodebuild clean test \
           -scheme "WeatherTests" \
           -destination "platform=iOS Simulator,name=$SIMULATOR_NAME,OS=$SIMULATOR_OS" \
-          -quiet
+          -quiet \
           -enableCodeCoverage YES
 
     - name: Upload coverage to Codecov
