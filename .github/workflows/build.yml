@@ -32,19 +32,21 @@ jobs:
       id: select_simulator
       run: |
         # List all available simulators and store the result
-        SIMULATOR=$(xcrun simctl list devices available | grep -E 'iPhone.*\(\S+\) \(\w+\)' | head -n 1 | sed 's/([A-Za-z0-9-]*\) (.*)/\1/i')
-        
-        # If a valid simulator is found, extract its name and iOS version
+        SIMULATOR=$(xcrun simctl list devices available | grep -E 'iPhone.*\(\S+\) \(\w+\)' | head -n 1)
+
+        # If no simulator is found, exit
         if [[ -z "$SIMULATOR" ]]; then
           echo "No available simulators found"
           exit 1
         fi
 
-        # Extract the name and OS version of the selected simulator
-        SIMULATOR_NAME=$(echo $SIMULATOR | sed -E 's/(\S+) .*/\1/')
-        SIMULATOR_OS=$(echo $SIMULATOR | sed -E 's/\S+ (.*)/\1/')
+        # Extract the simulator name and OS version from the output
+        SIMULATOR_NAME=$(echo $SIMULATOR | sed -E 's/([A-Za-z0-9 ]+) \([A-Za-z0-9-]*\) \((.*)\)/\1/')
+        SIMULATOR_OS=$(echo $SIMULATOR | sed -E 's/([A-Za-z0-9 ]+) \([A-Za-z0-9-]*\) \((.*)\)/\2/')
 
         echo "Selected simulator: $SIMULATOR_NAME with iOS $SIMULATOR_OS"
+
+        # Set the simulator name and OS version as outputs
         echo "::set-output name=simulator_name::$SIMULATOR_NAME"
         echo "::set-output name=simulator_os::$SIMULATOR_OS"
 
