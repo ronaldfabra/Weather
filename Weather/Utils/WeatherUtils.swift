@@ -41,7 +41,7 @@ class WeatherUtils {
 
     static func getConditionIconUrl(conditionIcon: String) -> URL? {
         let conditionURL = conditionIcon.hasPrefix("//")
-        ? "https:" + conditionIcon.dropFirst(2)
+        ? "https:" + conditionIcon
         : "https://" + conditionIcon
         return URL(string: conditionURL)
     }

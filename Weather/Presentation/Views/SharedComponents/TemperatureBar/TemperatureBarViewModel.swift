@@ -30,6 +30,7 @@ class TemperatureBarViewModel: ObservableObject {
                WeatherContants.Strings.max.capitalized,
                WeatherUtils.getTempString(temp: weatherData.maxtempC))
     }
+
     var maxTemperatureBarWidth: CGFloat {
         CGFloat(max((weatherData.maxtempC ?? .zero) / 50, 0)) * 200
     }

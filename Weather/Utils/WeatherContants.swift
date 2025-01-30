@@ -96,7 +96,7 @@ struct WeatherContants {
     struct DateFormats {
         static let date = "yyyy-MM-dd"
         static let dateWithTime = "yyyy-MM-dd HH:mm"
-        static let time = "hh:mm a"
+        static let time = "hh a"
         static let day = "EEEE"
     }
 }
