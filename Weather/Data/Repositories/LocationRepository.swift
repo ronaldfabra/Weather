@@ -15,8 +15,10 @@ class LocationRepository: LocationRepositoryProtocol {
     }
 
     func searchLocations(query: String) async throws -> [LocationDomainModel] {
-        let response = try await network.request(endPoint: LocationEndpoint.search(query),
-                                                 type: [LocationDto].self)
+        let response = try await network.request(
+            endPoint: LocationEndpoint.search(query),
+            type: [LocationDto].self
+        )
         return response.map { $0.toDomain() }
     }
 }
