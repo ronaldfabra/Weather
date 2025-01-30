@@ -32,7 +32,7 @@ jobs:
       run: |
         xcodebuild clean test \
           -scheme "WeatherTests" \
-          -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.1' \
+          -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.2' \
           -enableCodeCoverage YES
 
     - name: Upload coverage to Codecov
