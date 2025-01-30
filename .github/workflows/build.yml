@@ -27,13 +27,12 @@ jobs:
 
     - name: List available devices
       run: xcrun xctrace list devices
-      
+
     - name: Build and run tests
       run: |
-        # Usa xcodebuild para ejecutar las pruebas
         xcodebuild clean test \
           -scheme "WeatherTests" \
-          -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+          -destination 'platform=iOS Simulator,OS=latest,name=iPhone 16' \
           -quiet
           -enableCodeCoverage YES
 
