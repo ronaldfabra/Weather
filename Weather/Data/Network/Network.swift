@@ -5,7 +5,6 @@
 //  Created by Ronal Fabra Jimenez on 28/01/25.
 //
 
-import SwiftUI
 import Combine
 import Foundation
 
@@ -39,7 +38,11 @@ public class Network: NetworkProtocol {
             let (data, response) = try await URLSession.shared.data(for: urlRequest)
             guard (response as? HTTPURLResponse)?.statusCode == ResponseStatusType.success.rawValue else {
                 guard let errorModel = try? decoder.decode(ApiErrorDto.self, from: data) else {
-                    throw NetworkErrorType.generalError
+                    if (response as? HTTPURLResponse)?.statusCode == ResponseStatusType.unauthorized.rawValue {
+                        throw NetworkErrorType.invalidApiKey
+                    } else {
+                        throw NetworkErrorType.generalError
+                    }
                 }
                 throw errorModel
             }
@@ -52,6 +55,8 @@ public class Network: NetworkProtocol {
                 throw NetworkErrorType.internetConnection
             }
             throw NetworkErrorType.error(from: error.error)
+        } catch let error as NetworkErrorType {
+            throw error
         } catch {
             throw NetworkErrorType.unkown(error)
         }
