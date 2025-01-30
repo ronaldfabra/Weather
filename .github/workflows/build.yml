@@ -25,16 +25,21 @@ jobs:
     - name: Show current version of Xcode
       run: xcodebuild -version
 
-    - name: List all simulators for debugging
+    - name: List all devices for debugging (including simulators)
       run: |
-        # List todos los dispositivos, incluyendo apagados, para depuración
+        # List all devices (simulators + físicos)
         xcrun simctl list devices
+
+    - name: List installed simulators
+      run: |
+        # List simuladores disponibles de Xcode
+        xcrun simctl list devices available
 
     - name: Select the first available simulator
       id: select_simulator
       run: |
         # Listar los simuladores disponibles y no apagados
-        SIMULATOR=$(xcrun simctl list devices | grep -E 'iPhone.*\(\S+\) \(\w+\)' | grep -v 'Shutdown' | head -n 1)
+        SIMULATOR=$(xcrun simctl list devices available | grep -E 'iPhone.*\(\S+\) \(\w+\)' | grep -v 'Shutdown' | head -n 1)
 
         # Si no se encuentra un simulador, terminar el script
         if [[ -z "$SIMULATOR" ]]; then
