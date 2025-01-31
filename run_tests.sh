@@ -8,8 +8,21 @@ IOS_VERSIONS=$(xcrun simctl list runtimes | grep -o 'iOS [0-9]\{1,\}\.[0-9]\{1,\
 # Get the latest version (newest)
 LATEST_VERSION=$(echo "$IOS_VERSIONS" | head -n 1)
 
-# Get the penultimate version (second newest)
-PENULTIMATE_VERSION=$(echo "$IOS_VERSIONS" | sed -n '2p')
+# Get the major version (the first number, e.g., 18 from 18.2)
+LATEST_MAJOR_VERSION=$(echo "$LATEST_VERSION" | cut -d '.' -f 1)
+
+# Find the version just before the latest major version (not the same major)
+PREVIOUS_MAJOR_VERSION=$(echo "$IOS_VERSIONS" | grep -o "^[0-9]\{1,\}" | grep -v "^$LATEST_MAJOR_VERSION$" | sort -V | tail -n 1)
+
+# Construct the version string to use: If last version is 18.x, pick 17.x
+if [[ $LATEST_MAJOR_VERSION == $PREVIOUS_MAJOR_VERSION ]]; then
+    # If the latest version is 18.x, we take the previous major version (17.x)
+    # This ensures you pick a version like 17.x if the last version is 18.x
+    DESTINATION_VERSION="$PREVIOUS_MAJOR_VERSION"
+else
+    # If the latest version is not the same as the major version of the previous release
+    DESTINATION_VERSION="$LATEST_MAJOR_VERSION"
+fi
 
 # Function to check if there are available simulators for a given iOS version
 function check_simulators_for_version {
@@ -41,10 +54,10 @@ if check_simulators_for_version "$LATEST_VERSION"; then
     DEVICE_NAME=$(get_first_device_name "$LATEST_VERSION")
     DESTINATION="platform=iOS Simulator,OS=$LATEST_VERSION,name=$DEVICE_NAME"
 else
-    # If there are no devices for the latest version, use the penultimate one
-    echo "No devices available for the latest version. Using the penultimate iOS version: $PENULTIMATE_VERSION"
-    DEVICE_NAME=$(get_first_device_name "$PENULTIMATE_VERSION")
-    DESTINATION="platform=iOS Simulator,OS=$PENULTIMATE_VERSION,name=$DEVICE_NAME"
+    # If there are no devices for the latest version, use the previous major version
+    echo "No devices available for the latest version. Using the previous major version: $DESTINATION_VERSION"
+    DEVICE_NAME=$(get_first_device_name "$DESTINATION_VERSION")
+    DESTINATION="platform=iOS Simulator,OS=$DESTINATION_VERSION,name=$DEVICE_NAME"
 fi
 
 # Run the test command
