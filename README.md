@@ -38,6 +38,9 @@ The project uses Dependency Injection (DI) to facilitate layer separation, follo
 ## Unit test
 Unit tests have been implemented for viewModels, use cases, repositories, database container, and utils as these components contain most of the project's logic.
 
+## UI test
+UI tests have been implemented for some views to ensure to have the expected components.
+
 ## API
 - **URL base**: `https://api.weatherapi.com`
 - **Api version**: `v1`
@@ -68,6 +71,6 @@ In addition to the GitHub Actions pipeline, you can run the same CI process loca
 - the requests was developed using async and await that are the new structured concurrency changes that arrived in Swift 5.5 during WWDC 2021.
 - the app support portrait and landscape orientation.
 - the app use a local database to handle the favorites locations this with CoreData.
-- the app has unit tests to ensure the correct behavior this with Swift Tests and XCTests.
+- the app has unit tests and ui tests to ensure the correct behavior this with Swift Tests and XCTests.
 - the app support the errors handler.
 - there is no any third library, all the application was made with own code.

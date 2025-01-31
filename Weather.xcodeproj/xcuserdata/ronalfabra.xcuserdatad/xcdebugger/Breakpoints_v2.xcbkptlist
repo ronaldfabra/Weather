@@ -18,6 +18,50 @@
             endingLineNumber = "61"
             landmarkName = "request(endPoint:type:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "144FAA71-5D4F-4CEC-8D0D-C9EEFCA8394D - 4afb5b085a6818f0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Weather.Network.request&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(endPoint: Weather.EndPointProtocol, type: &#x3c4;_0_0.Type) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Weather.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ronalfabra/Downloads/projects/bold/Weather/Weather/Data/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61">
+               </Location>
+               <Location
+                  uuid = "144FAA71-5D4F-4CEC-8D0D-C9EEFCA8394D - 93218cdfe240dcf2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Weather.Network.request&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(endPoint: Weather.EndPointProtocol, type: &#x3c4;_0_0.Type) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Weather.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ronalfabra/Downloads/projects/bold/Weather/Weather/Data/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61">
+               </Location>
+               <Location
+                  uuid = "144FAA71-5D4F-4CEC-8D0D-C9EEFCA8394D - 4073597a462cbefd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Weather.Network.request&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(endPoint: Weather.EndPointProtocol, type: &#x3c4;_0_0.Type) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Weather.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ronalfabra/Downloads/projects/bold/Weather/Weather/Data/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -66,6 +110,50 @@
             endingLineNumber = "57"
             landmarkName = "request(endPoint:type:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B40D81C9-E970-4147-9485-01A935E6FDA6 - 4afb5b085a681874"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Weather.Network.request&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(endPoint: Weather.EndPointProtocol, type: &#x3c4;_0_0.Type) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Weather.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ronalfabra/Downloads/projects/bold/Weather/Weather/Data/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57">
+               </Location>
+               <Location
+                  uuid = "B40D81C9-E970-4147-9485-01A935E6FDA6 - 93218cdfe240dc76"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Weather.Network.request&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(endPoint: Weather.EndPointProtocol, type: &#x3c4;_0_0.Type) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Weather.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ronalfabra/Downloads/projects/bold/Weather/Weather/Data/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57">
+               </Location>
+               <Location
+                  uuid = "B40D81C9-E970-4147-9485-01A935E6FDA6 - 4073597a462cbe79"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Weather.Network.request&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(endPoint: Weather.EndPointProtocol, type: &#x3c4;_0_0.Type) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Weather.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ronalfabra/Downloads/projects/bold/Weather/Weather/Data/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -130,6 +218,224 @@
             endingLineNumber = "55"
             landmarkName = "request(endPoint:type:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "47F8E3D4-AF41-434B-A0DC-DB483E90B7BB - 4afb5b085a681836"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Weather.Network.request&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(endPoint: Weather.EndPointProtocol, type: &#x3c4;_0_0.Type) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Weather.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ronalfabra/Downloads/projects/bold/Weather/Weather/Data/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55">
+               </Location>
+               <Location
+                  uuid = "47F8E3D4-AF41-434B-A0DC-DB483E90B7BB - 93218cdfe240dc34"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Weather.Network.request&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(endPoint: Weather.EndPointProtocol, type: &#x3c4;_0_0.Type) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Weather.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ronalfabra/Downloads/projects/bold/Weather/Weather/Data/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55">
+               </Location>
+               <Location
+                  uuid = "47F8E3D4-AF41-434B-A0DC-DB483E90B7BB - 4073597a462cbe3b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Weather.Network.request&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(endPoint: Weather.EndPointProtocol, type: &#x3c4;_0_0.Type) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Weather.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ronalfabra/Downloads/projects/bold/Weather/Weather/Data/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4CCA4CB3-CB4B-4792-B63A-D0B47887E1BB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Weather/Data/Network/Network.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61">
+            <Locations>
+               <Location
+                  uuid = "4CCA4CB3-CB4B-4792-B63A-D0B47887E1BB - 4afb5b085a6818f0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Weather.Network.request&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(endPoint: Weather.EndPointProtocol, type: &#x3c4;_0_0.Type) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Weather.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ronalfabra/Downloads/projects/bold/Weather/Weather/Data/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61">
+               </Location>
+               <Location
+                  uuid = "4CCA4CB3-CB4B-4792-B63A-D0B47887E1BB - 93218cdfe240dcf2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Weather.Network.request&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(endPoint: Weather.EndPointProtocol, type: &#x3c4;_0_0.Type) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Weather.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ronalfabra/Downloads/projects/bold/Weather/Weather/Data/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61">
+               </Location>
+               <Location
+                  uuid = "4CCA4CB3-CB4B-4792-B63A-D0B47887E1BB - 4073597a462cbefd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Weather.Network.request&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(endPoint: Weather.EndPointProtocol, type: &#x3c4;_0_0.Type) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Weather.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ronalfabra/Downloads/projects/bold/Weather/Weather/Data/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A2CDD7BA-E86B-4E1E-BB21-387AF2483781"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Weather/Data/Network/Network.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61">
+            <Locations>
+               <Location
+                  uuid = "A2CDD7BA-E86B-4E1E-BB21-387AF2483781 - 4afb5b085a6818f0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Weather.Network.request&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(endPoint: Weather.EndPointProtocol, type: &#x3c4;_0_0.Type) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Weather.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ronalfabra/Downloads/projects/bold/Weather/Weather/Data/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61">
+               </Location>
+               <Location
+                  uuid = "A2CDD7BA-E86B-4E1E-BB21-387AF2483781 - 93218cdfe240dcf2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Weather.Network.request&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(endPoint: Weather.EndPointProtocol, type: &#x3c4;_0_0.Type) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Weather.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ronalfabra/Downloads/projects/bold/Weather/Weather/Data/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61">
+               </Location>
+               <Location
+                  uuid = "A2CDD7BA-E86B-4E1E-BB21-387AF2483781 - 4073597a462cbefd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Weather.Network.request&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(endPoint: Weather.EndPointProtocol, type: &#x3c4;_0_0.Type) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Weather.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ronalfabra/Downloads/projects/bold/Weather/Weather/Data/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BAC1A2D5-F74E-4E21-884A-95AECD136FB0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Weather/Data/Network/Network.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61">
+            <Locations>
+               <Location
+                  uuid = "BAC1A2D5-F74E-4E21-884A-95AECD136FB0 - 93218cdfe240dcf2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Weather.Network.request&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(endPoint: Weather.EndPointProtocol, type: &#x3c4;_0_0.Type) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Weather.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ronalfabra/Downloads/projects/bold/Weather/Weather/Data/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61">
+               </Location>
+               <Location
+                  uuid = "BAC1A2D5-F74E-4E21-884A-95AECD136FB0 - 4073597a462cbefd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Weather.Network.request&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(endPoint: Weather.EndPointProtocol, type: &#x3c4;_0_0.Type) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Weather.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ronalfabra/Downloads/projects/bold/Weather/Weather/Data/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61">
+               </Location>
+               <Location
+                  uuid = "BAC1A2D5-F74E-4E21-884A-95AECD136FB0 - 4afb5b085a6818f0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Weather.Network.request&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(endPoint: Weather.EndPointProtocol, type: &#x3c4;_0_0.Type) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Weather.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ronalfabra/Downloads/projects/bold/Weather/Weather/Data/Network/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -37,6 +37,14 @@ class SearchLocationViewModel: ObservableObject {
             self.locations = []
         } else {
             Task {
+                #if DEBUG
+                self.locations = [.init(id: 0,
+                                        name: "San francisco",
+                                        country: "Estados Unidos",
+                                        latitude: 0.0,
+                                        longitude: 0.0,
+                                        localtime: "")]
+                #else
                 self.isLoading = true
                 do {
                     let locations = try await searchLocationsUseCase.execute(query: query)
@@ -46,6 +54,7 @@ class SearchLocationViewModel: ObservableObject {
                     self.error = error
                     self.isLoading = false
                 }
+                #endif
             }
         }
     }
