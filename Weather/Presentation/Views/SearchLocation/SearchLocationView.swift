@@ -16,7 +16,7 @@ struct SearchLocationView: View {
 
     init(dependencyContainer: DependencyContainerProtocol) {
         self._viewModel = StateObject(
-            wrappedValue: DependencyContainer.shared.makeSearchLocationViewModel()
+            wrappedValue: dependencyContainer.makeSearchLocationViewModel()
         )
     }
 
@@ -59,6 +59,7 @@ extension SearchLocationView {
                       text: $query)
             .padding()
             .textFieldStyle(RoundedBorderTextFieldStyle())
+            .accessibilityIdentifier("searchLocationTextfield")
             .onChange(of: query) { newQuery in
                 viewModel.updateQuery(query: newQuery)
             }
@@ -84,8 +85,10 @@ extension SearchLocationView {
                 Image(WeatherContants.Images.location)
                     .resizable()
                     .frame(width: 150.0, height: 150.0)
+                    .accessibilityIdentifier(WeatherContants.Images.location)
                 Text(WeatherContants.Strings.EmptyState.Search.title)
                     .font(.system(size: 20.0, weight: .light))
+                    .accessibilityIdentifier(WeatherContants.Strings.EmptyState.Search.title)
             }
             Spacer()
         }
@@ -106,11 +109,11 @@ extension SearchLocationView {
                         }
                     }
                 }
+                    .accessibilityIdentifier("searchLocationListView")
             )
         } else {
             AnyView(
-                List {
-                    ForEach(viewModel.locations, id: \.self) { location in
+                List(viewModel.locations, id: \.self) { location in
                         NavigationLink(destination: WeatherDetailView(
                             location: location,
                             dependencyContainer: DependencyContainer.shared
@@ -118,12 +121,11 @@ extension SearchLocationView {
                             LocationRow(location: location)
                         }
                     }
-                }
+                    .accessibilityIdentifier("searchLocationListView")
             )
         }
     }
 }
-
 
 // MARK: skeletonView
 extension SearchLocationView {

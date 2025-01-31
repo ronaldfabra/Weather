@@ -15,26 +15,13 @@ struct ContentView: View {
     @State private var isActive = false
 
     var body: some View {
-        VStack {
+        Group {
             if isActive {
-                TabView {
-                    SearchLocationView(dependencyContainer: DependencyContainer.shared)
-                        .tabItem {
-                            Label(
-                                WeatherContants.Strings.searchLocation,
-                                systemImage: WeatherContants.Icons.search
-                            )
-                        }
-                    FavoriteLocationsView()
-                        .tabItem {
-                            Label(
-                                WeatherContants.Strings.favorites,
-                                systemImage: WeatherContants.Icons.notFavorite
-                            )
-                        }
-                }
+                tabView
+                    .accessibilityIdentifier("tabView")
             } else {
                 SplashView()
+                    .accessibilityIdentifier("splashView")
             }
         }
         .environmentObject(favoriteLocationsViewModel)
@@ -42,6 +29,28 @@ struct ContentView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                 self.isActive = true
             }
+        }
+    }
+
+    private var tabView: some View {
+        TabView {
+            SearchLocationView(dependencyContainer: DependencyContainer.shared)
+                .tabItem {
+                    Label(
+                        WeatherContants.Strings.searchLocation,
+                        systemImage: WeatherContants.Icons.search
+                    )
+                }
+                .accessibilityIdentifier("searchLocationView")
+
+            FavoriteLocationsView()
+                .tabItem {
+                    Label(
+                        WeatherContants.Strings.favorites,
+                        systemImage: WeatherContants.Icons.notFavorite
+                    )
+                }
+                .accessibilityIdentifier("favoriteLocationsView")
         }
     }
 }

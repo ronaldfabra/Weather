@@ -111,8 +111,10 @@ extension FavoriteLocationsView {
                 VStack(alignment: .center, spacing: Dimens.spacing10) {
                     Text(Strings.EmptyState.Favorites.title)
                         .font(.system(size: 30.0, weight: .bold))
+                        .accessibilityIdentifier(Strings.EmptyState.Favorites.title)
                     Text(Strings.EmptyState.Favorites.message)
                         .font(.system(size: 20.0, weight: .light))
+                        .accessibilityIdentifier(Strings.EmptyState.Favorites.message)
                 }
                 HStack(spacing: .zero) {
                     Text(Strings.EmptyState.Favorites.addFavoriteHelper) +

@@ -17,9 +17,11 @@ struct SplashView: View {
         ZStack(alignment: .top) {
             if showRain {
                 CloudySkyBackgroundView()
+                    .accessibilityIdentifier("cloudySkyBackgroundView")
                 rainComponent
             } else {
                 SkyBackgroundView()
+                    .accessibilityIdentifier("skyBackgroundView")
             }
             sunComponent
             appName
@@ -36,6 +38,7 @@ extension SplashView {
             }
         }
         .ignoresSafeArea()
+        .accessibilityIdentifier("rainComponent")
     }
 }
 
@@ -60,6 +63,7 @@ extension SplashView {
                 }
         }
         .padding(.trailing, 30.0)
+        .accessibilityIdentifier("sunComponent")
     }
 }
 
@@ -80,6 +84,7 @@ extension SplashView {
                 showAppName = true
             }
         }
+        .accessibilityIdentifier("appName")
     }
 }
 
