@@ -2,18 +2,24 @@
 
 UNIT_TEST_SCHEME='WeatherTests'
 UI_TEST_SCHEME='WeatherUITests'
+
 DESTINATION='platform=iOS Simulator,OS=latest,name=iPhone 16'
-COVERAGE_DIR="./coverage"
-mkdir -p $COVERAGE_DIR
+OUTPUT_DIR='./test-reports'
+
+# Crear directorio para los reportes de cobertura si no existe
+mkdir -p $OUTPUT_DIR
 
 echo "Running unit tests..."
-xcodebuild test -scheme $UNIT_TEST_SCHEME -destination "$DESTINATION" CODE_SIGNING_ALLOWED='NO' -enableCodeCoverage YES -resultBundlePath $COVERAGE_DIR/unit_test_results
-
-# Generar reporte de cobertura LCOV para unit tests
-xcrun xccov view --report --json $COVERAGE_DIR/unit_test_results/Logs/Test/*.xccovreport | jq . | lcov -o $COVERAGE_DIR/unit_test_coverage.lcov
+xcodebuild test -scheme $UNIT_TEST_SCHEME -destination "$DESTINATION" CODE_SIGNING_ALLOWED='NO' -enableCodeCoverage YES -resultBundlePath  $OUTPUT_DIR/unit_tests.log
 
 echo "Running UI tests..."
-xcodebuild test -scheme $UI_TEST_SCHEME -destination "$DESTINATION" CODE_SIGNING_ALLOWED='NO' -enableCodeCoverage YES -resultBundlePath $COVERAGE_DIR/ui_test_results
+xcodebuild test -scheme $UI_TEST_SCHEME -destination "$DESTINATION" CODE_SIGNING_ALLOWED='NO' -enableCodeCoverage YES -resultBundlePath $OUTPUT_DIR/ui_tests.log
 
-# Generar reporte de cobertura LCOV para UI tests
-xcrun xccov view --report --json $COVERAGE_DIR/ui_test_results/Logs/Test/*.xccovreport | jq . | lcov -o $COVERAGE_DIR/ui_test_coverage.lcov
+# Mover los reportes de cobertura a un lugar accesible
+cp -r ~/Library/Developer/Xcode/DerivedData/*/Coverage/*.xccovreport $OUTPUT_DIR/
+
+# Opcional: Listar archivos de cobertura para asegurarte de que todo esté bien
+echo "Listing coverage files:"
+ls -l $OUTPUT_DIR
+
+echo "Tests and coverage reports are ready."

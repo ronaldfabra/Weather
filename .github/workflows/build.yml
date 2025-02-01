@@ -40,4 +40,4 @@ jobs:
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         slug: ronaldfabra/Weather
-        files: "./coverage/unit_test_coverage.lcov,./coverage/ui_test_coverage.lcov"
+        directory: './test-reports
