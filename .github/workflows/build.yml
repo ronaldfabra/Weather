@@ -33,11 +33,32 @@ jobs:
       run: sudo xcode-select -s /Applications/Xcode_16.1.0.app/Contents/Developer
     - name: Show current version of Xcode
       run: xcodebuild -version
-    - name: Run tests
-      run: ./run_tests.sh
+    - name: Run Unit Tests
+      run: |
+          xcodebuild test \
+            -scheme WeatherTests \
+            -destination 'platform=iOS Simulator,OS=latest,name=iPhone 16' \
+            -enableCodeCoverage YES \
+            -resultBundlePath result_bundle_unit \
+            | xcpretty
+    - name: Run UI Tests
+      run: |
+          xcodebuild test \
+            -scheme WeatherUITests \
+            -destination 'platform=iOS Simulator,OS=latest,name=iPhone 16' \
+            -enableCodeCoverage YES \
+            -resultBundlePath result_bundle_ui \
+            | xcpretty
+
+    - name: Combine Coverage Files
+      run: |
+          mkdir -p combined_coverage
+          xcrun xcresulttool get --path result_bundle_unit.xcresult --format json > combined_coverage/unit.json
+          xcrun xcresulttool get --path result_bundle_ui.xcresult --format json > combined_coverage/ui.json
+          
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1.2.1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         slug: ronaldfabra/Weather
-        directory: './test-reports'
+        files: combined_coverage/*.json
