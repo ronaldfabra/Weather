@@ -33,32 +33,33 @@ jobs:
       run: sudo xcode-select -s /Applications/Xcode_16.1.0.app/Contents/Developer
     - name: Show current version of Xcode
       run: xcodebuild -version
-    - name: Run Unit Tests
+    - name: Run Unit and UI Tests
       run: |
-          xcodebuild test \
-            -scheme WeatherTests \
-            -destination 'platform=iOS Simulator,OS=latest,name=iPhone 16' \
-            -enableCodeCoverage YES \
-            -resultBundlePath result_bundle_unit \
-            | xcpretty
-    - name: Run UI Tests
-      run: |
-          xcodebuild test \
-            -scheme WeatherUITests \
-            -destination 'platform=iOS Simulator,OS=latest,name=iPhone 16' \
-            -enableCodeCoverage YES \
-            -resultBundlePath result_bundle_ui \
-            | xcpretty
+        # Ejecutar pruebas unitarias con cobertura habilitada
+        xcodebuild test \
+          -scheme WeatherTests \
+          -destination 'platform=iOS Simulator,OS=latest,name=iPhone 16' \
+          -enableCodeCoverage YES \
+          -resultBundlePath result_bundle_unit.xcresult
 
-    - name: Combine Coverage Files
+        # Ejecutar pruebas de UI con cobertura habilitada
+        xcodebuild test \
+          -scheme WeatherUITests \
+          -destination 'platform=iOS Simulator,OS=latest,name=iPhone 16' \
+          -enableCodeCoverage YES \
+          -resultBundlePath result_bundle_ui.xcresult
+
+    - name: Extract coverage from .xcresult and generate JSON
       run: |
-          mkdir -p combined_coverage
-          xcrun xcresulttool get --path result_bundle_unit.xcresult --format json > combined_coverage/unit.json
-          xcrun xcresulttool get --path result_bundle_ui.xcresult --format json > combined_coverage/ui.json
-          
+        # Extraer el archivo de cobertura en formato JSON
+        xcrun xcresulttool get --legacy --path result_bundle_unit.xcresult --format json > result_unit.json
+        xcrun xcresulttool get --legacy --path result_bundle_ui.xcresult --format json > result_ui.json
+
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1.2.1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
+        files: |
+          result_unit.json
+          result_ui.json
         slug: ronaldfabra/Weather
-        files: combined_coverage/*.json
