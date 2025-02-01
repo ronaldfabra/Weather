@@ -40,4 +40,4 @@ jobs:
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         slug: ronaldfabra/Weather
-        directory: './test-reports
+        directory: './test-reports'
